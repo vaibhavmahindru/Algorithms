@@ -1,0 +1,72 @@
+import java.util.*;
+
+class Search{
+    
+    
+
+	int search(int arr[],int f,int l,int k){
+        
+        
+		
+			if(l>=f){
+			int mid = f+(l-1)/2;  
+
+			if(arr[mid]==k)
+			return mid;
+
+			if(arr[mid]>k)
+			return search(arr,0,mid-1,k);
+
+			return search(arr,mid+1,l,k);
+		}
+ 
+
+		return -1; 
+	}  
+
+}
+
+public class binarySearch
+{
+	
+	public static void main(String[] args) {
+		
+		
+		Scanner in = new Scanner(System.in);
+		
+		int n,k;
+		
+				
+		System.out.println("Enter the size  of array");
+			
+		n = in.nextInt();
+	    
+		int arr[] = new int[n];
+	    
+		for(int i=0; i<n; i++)
+	    
+		{
+	        
+			arr[i] = i+5;	    
+		}
+	    
+		System.out.println("Enter the number you want to find");
+	    
+		k = in.nextInt();
+	    
+		Search ob = new Search();
+	    
+		int j = ob.search(arr,0,n-1,k);
+	    
+		if(j == -1)
+	    
+		System.out.println("element not found");
+	    
+		else
+	    
+		System.out.println("element found");
+	    
+	
+	}
+
+}

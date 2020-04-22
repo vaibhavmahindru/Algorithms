@@ -1,0 +1,71 @@
+import java.util.*;
+
+class Search{
+    
+    
+
+	int search(int arr[], int k){
+        
+        
+		for(int i=0; i<arr.length; i++){
+            
+            
+			if(arr[i]==k)
+            
+			return i;
+        
+		}
+        
+		return -1;
+    
+	}
+    
+
+}
+
+public class linearSearch
+{
+	
+	public static void main(String[] args) {
+		
+		
+		Scanner in = new Scanner(System.in);
+		
+		int n,k;
+		
+		Random random = new Random();
+		
+		System.out.println("Enter the size  of array");
+			
+		n = in.nextInt();
+	    
+		int arr[] = new int[n];
+	    
+		for(int i=0; i<n; i++)
+	    
+		{
+	        
+			arr[i] = random.nextInt(100);
+	    
+		}
+	    
+		System.out.println("Enter the number you want to find");
+	    
+		k = in.nextInt();
+	    
+		Search ob = new Search();
+	    
+		int j = ob.search(arr,k);
+	    
+		if(j == -1)
+	    
+		System.out.println("element not found");
+	    
+		else
+	    
+		System.out.println("element found");
+	    
+	
+	}
+
+}

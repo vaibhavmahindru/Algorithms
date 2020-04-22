@@ -1,0 +1,76 @@
+import java.util.*;
+class sorting
+{
+    int left, right,p;
+    int partition(int arr[], int start, int end, int p)
+    {
+        left = start;
+        right = end - 1;
+        boolean a = true;
+        while(a)
+        {
+            while(arr[left]<p)
+                left++;
+        
+            
+            while(arr[right]>p && right>0)
+                right--;
+                
+            
+            if(left>=right)
+                break;
+            else
+            {
+                int temp = arr[right];
+                arr[right] = arr[left];
+                arr[left] = temp;
+            }
+        }
+        int temp = arr[end];
+        arr[end] = arr[left];
+        arr[left] = temp;
+        
+        return left;
+    }
+    
+    int quick(int arr[],int start, int end)
+    {
+        
+        if(start>=end)
+            return 0;
+        
+        else
+        {
+            p = arr[end];
+            int x = partition(arr,start,end,p);
+            quick(arr,start,x-1);
+            quick(arr,x+1,end);
+        }
+        return 0;
+    
+}
+    
+    void display(int arr[])
+    {
+        for(int i=0;i<arr.length;i++)
+            System.out.print(arr[i]+"   ");
+    }
+}
+public class Main
+{
+	public static void main(String[] args) 
+	{
+	    
+	    System.out.println("enter the size of array");
+		Scanner in = new Scanner(System.in);
+		int n = in.nextInt();
+		int arr[] = new int[n];
+	    System.out.println("enter the elements");
+	    for(int i=0;i<arr.length;i++)
+            arr[i] = in.nextInt();
+	    
+		sorting ob = new sorting();
+		ob.quick(arr,0,arr.length - 1);
+		ob.display(arr);
+	}
+}
